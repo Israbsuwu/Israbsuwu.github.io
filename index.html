@@ -3,173 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Israbsuwu | Steam Profile</title>
+    <title>Israbsuwu | The Glitch Joker</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* --- ESTILOS GENERALES (Tema Steam) --- */
+        :root {
+            --red: #FE5F55;
+            --blue: #009DDC;
+            --bg: #1a1a1a;
+            --card-bg: #e0e0e0;
+        }
+
         body {
-            background-color: #1b2838;
-            background-image: url('https://community.akamai.steamstatic.com/public/images/profile/2020/bg_dots.png');
-            color: #c7d5e0;
-            font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+            background-color: #111;
+            background-image: 
+                radial-gradient(#333 15%, transparent 16%),
+                radial-gradient(#333 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: white;
+            font-family: 'VT323', monospace;
             margin: 0;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            overflow: hidden;
+            text-transform: uppercase;
         }
 
-        .steam-container {
-            background-color: #0f1219;
-            background: radial-gradient(circle at top left, #2a475e, #171a21); 
-            width: 90%;
-            max-width: 940px;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg, 
+                rgba(255, 0, 0, 0.06), 
+                rgba(0, 255, 0, 0.02), 
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            background-color: var(--card-bg);
+            border: 8px solid #fff;
+            border-radius: 12px;
+            box-shadow: 
+                0 0 0 4px #000, 
+                10px 10px 0px rgba(0,0,0,0.5); 
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        /* --- COLUMNA IZQUIERDA --- */
-        .left-col { flex: 1; min-width: 300px; }
-
-        .avatar-box { display: flex; gap: 15px; margin-bottom: 20px; }
-        
-        .avatar-frame {
-            border: 2px solid #57cbde;
-            padding: 2px;
-            width: 164px;
-            height: 164px;
-            background-color: rgba(0,0,0,0.3);
-        }
-        
-        .avatar-img { width: 100%; height: 100%; object-fit: cover; }
-
-        .level-badge {
-            border: 2px solid #57cbde;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: white;
-            margin-left: -20px;
-            margin-top: 130px;
-            background-color: #1b2838;
-            z-index: 2;
+            padding: 8px;
+            animation: float 5s ease-in-out infinite;
+            transition: transform 0.2s;
         }
 
-        .artwork-showcase {
-            background-color: #000;
-            border: 1px solid #3c4556;
-            padding: 10px;
-            border-radius: 3px;
+        .card:hover {
+            transform: scale(1.02) rotate(-2deg);
+            box-shadow: 
+                0 0 0 4px #000,
+                15px 15px 0px rgba(0, 157, 220, 0.4);
         }
 
-        .artwork-title { color: #58a6ff; margin-bottom: 5px; font-size: 14px; }
-
-        .main-art {
+        .card-banner {
+            background: var(--blue);
             width: 100%;
-            border-radius: 2px;
-            transition: opacity 0.3s;
+            text-align: center;
+            border: 2px solid #000;
+            border-radius: 4px;
+            margin-bottom: 10px;
         }
-        .main-art:hover { opacity: 0.9; }
-
-        /* --- COLUMNA DERECHA --- */
-        .right-col { flex: 1.5; min-width: 300px; }
-
-        h1 { color: #ffffff; font-size: 26px; margin-top: 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-
-        .bio-text { color: #8f98a0; font-size: 14px; margin-bottom: 20px; }
-
-        .custom-box {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 3px;
+        
+        .card-title {
+            font-size: 28px;
+            margin: 2px 0;
+            color: #fff;
+            text-shadow: 2px 2px 0 #000;
+            letter-spacing: 1px;
         }
 
-        .status-online { color: #57cbde; font-weight: bold; font-size: 18px; margin-bottom: 10px; display: block; }
+        .css-art-container {
+            width: 100%;
+            height: 180px;
+            border: 3px solid #000;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        .badges-row img { margin-right: 5px; margin-bottom: 5px; transition: transform 0.2s; }
-        .badges-row img:hover { transform: scale(1.1); }
-
-        .btn-action {
-            display: inline-block;
-            background: linear-gradient(to bottom, #67c1f5 5%, #417a9b 95%);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 2px;
+        .glitch-pattern {
+            width: 100%;
+            height: 100%;
+            background: 
+                conic-gradient(
+                    var(--red) 90deg, 
+                    var(--blue) 90deg 180deg, 
+                    var(--red) 180deg 270deg, 
+                    var(--blue) 270deg
+                );
+            background-size: 40px 40px;
+            animation: shiftPattern 20s linear infinite;
+            opacity: 0.8;
+        }
+        .art-text {
+            position: absolute;
+            font-size: 80px;
             font-weight: bold;
-            margin-top: 10px;
-            font-size: 14px;
+            color: white;
+            z-index: 2;
+            text-shadow: 4px 4px 0 #000;
+            mix-blend-mode: overlay;
         }
-        .btn-action:hover { background: linear-gradient(to bottom, #417a9b 5%, #67c1f5 95%); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .description-box {
+            background: #fff;
+            border: 2px solid #000;
+            width: 95%;
+            flex-grow: 1;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 20px;
+            color: #222;
         }
+
+        .highlight-red { color: var(--red); font-weight: bold; font-size: 1.1em; }
+        .highlight-blue { color: var(--blue); font-weight: bold; }
+
+        .badge-container {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .badge {
+            background: #222;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 16px;
+            border-bottom: 2px solid var(--red);
+        }
+
+        .btn-start {
+            margin-top: 30px;
+            background: var(--red);
+            color: white;
+            font-size: 30px;
+            padding: 10px 40px;
+            text-decoration: none;
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0 #000;
+            transition: transform 0.1s;
+            z-index: 11; 
+            position: relative;
+        }
+        .btn-start:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 #000;
+            background: #ff7b73;
+        }
+        .btn-start:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes shiftPattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="steam-container">
-        
-        <div class="left-col">
-            <div class="avatar-box">
-                <div class="avatar-frame">
-                    
-                    <img src="https://github.com/Israbsuwu/Israbsuwu.github.io/issues/1" class="avatar-img" alt="Avatar">
-                    
-                </div>
-                <div class="level-badge">21</div>
-            </div>
+    <div class="scanlines"></div>
 
-            <div class="artwork-showcase">
-                <div class="artwork-title">Featured Artwork</div>
-                
-                <img src="https://github.com/Israbsuwu/Israbsuwu.github.io/issues/3" class="main-art" alt="Arte Principal">
-                
-            </div>
+    <div class="card">
+        
+        <div class="card-banner">
+            <h1 class="card-title">THE BACKEND DEV</h1>
         </div>
 
-        <div class="right-col">
-            <h1>Israbsuwu (Malaki)</h1>
-            <p class="bio-text">
-                "Si no prende no sirve" <br>
-                Backend Developer | Java | Python | C
+        <div class="css-art-container">
+            <div class="glitch-pattern"></div>
+            <div class="art-text">&lt;/&gt;</div>
+        </div>
+
+        <div class="description-box">
+            <p style="margin: 0; line-height: 1.2;">
+                Adds <span class="highlight-red">x100 MULT</span> when coding with
+                <span class="highlight-blue">JAVA</span> or 
+                <span class="highlight-blue">PYTHON</span>.
             </p>
-
-            <div class="custom-box">
-                <span class="status-online">Currently Online</span>
-                <p style="color: #c7d5e0; margin: 5px 0;">Coding in Visual Studio Code</p>
-                <div style="margin-top: 15px;">
-                    <a href="https://github.com/Israbsuwu" class="btn-action">Ver Perfil de GitHub</a>
-                </div>
-            </div>
-
-            <h3 style="color: #58a6ff; border-bottom: 1px solid #3c4556; padding-bottom: 5px;">Badges Collector</h3>
-            <div class="badges-row">
-                <img src="https://img.shields.io/badge/Java-ED8B00?style=pixel&logo=openjdk&logoColor=white" height="25">
-                <img src="https://img.shields.io/badge/Python-3776AB?style=pixel&logo=python&logoColor=white" height="25">
-                <img src="https://img.shields.io/badge/C-00599C?style=pixel&logo=c&logoColor=white" height="25">
-                <img src="https://img.shields.io/badge/PostgreSQL-316192?style=pixel&logo=postgresql&logoColor=white" height="25">
-            </div>
-
-            <h3 style="color: #58a6ff; border-bottom: 1px solid #3c4556; padding-bottom: 5px; margin-top: 20px;">Top Achievements</h3>
-            <div style="background-color: #000; padding: 10px; display: flex; gap: 10px;">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Israbsuwu&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" style="width: 100%;">
+            <div class="badge-container">
+                <div class="badge">JAVA</div>
+                <div class="badge">PYTHON</div>
+                <div class="badge">SQL</div>
             </div>
         </div>
 
     </div>
+
+    <a href="https://github.com/Israbsuwu" class="btn-start">
+        OPEN GITHUB
+    </a>
 
 </body>
 </html>
