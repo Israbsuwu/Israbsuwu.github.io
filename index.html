@@ -3,43 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Israbsuwu</title>
+    <title>Israbsuwu | Steam Profile</title>
     <style>
+        /* --- ESTILOS GENERALES (Tema Steam) --- */
         body {
-            background-color: #0d1117; /* Fondo oscuro de GitHub */
-            color: #c9d1d9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: #1b2838; /* Fondo Steam clásico */
+            background-image: url('https://community.akamai.steamstatic.com/public/images/profile/2020/bg_dots.png'); /* Textura de puntos */
+            color: #c7d5e0;
+            font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
+            min-height: 100vh;
         }
-        h1 { color: #58a6ff; margin-bottom: 10px; }
-        p { font-size: 1.2rem; color: #8b949e; }
-        .btn {
-            background-color: #238636;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 6px;
+
+        /* Contenedor Principal */
+        .steam-container {
+            background-color: #0f1219; /* Fondo oscuro del perfil */
+            background: radial-gradient(circle at top left, #2a475e, #171a21); 
+            width: 90%;
+            max-width: 940px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 1.5s ease-in-out; /* Animación de entrada */
+        }
+
+        /* --- COLUMNA IZQUIERDA (Avatar y Arte) --- */
+        .left-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .avatar-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .avatar-frame {
+            border: 2px solid #57cbde; /* Marco azul nivel alto */
+            padding: 2px;
+            width: 164px;
+            height: 164px;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .level-badge {
+            border: 2px solid #57cbde;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-            border: 1px solid rgba(240, 246, 252, 0.1);
+            font-size: 20px;
+            color: white;
+            margin-left: -20px;
+            margin-top: 130px;
+            background-color: #1b2838;
+            z-index: 2;
         }
-        .btn:hover { background-color: #2ea043; }
+
+        .artwork-showcase {
+            background-color: #000;
+            border: 1px solid #3c4556;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .artwork-title {
+            color: #58a6ff;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .main-art {
+            width: 100%;
+            border-radius: 2px;
+            /* Efecto sutil de brillo al pasar el mouse */
+            transition: opacity 0.3s;
+        }
+        .main-art:hover { opacity: 0.9; }
+
+        /* --- COLUMNA DERECHA (Info) --- */
+        .right-col {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-top: 0;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .bio-text {
+            color: #8f98a0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .custom-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 3px;
+        }
+
+        .status-online {
+            color: #57cbde;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .badges-row img {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            /* Animación suave en los badges */
+            transition: transform 0.2s;
+        }
+        .badges-row img:hover { transform: scale(1.1); }
+
+        .btn-action {
+            display: inline-block;
+            background: linear-gradient(to bottom, #67c1f5 5%, #417a9b 95%);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .btn-action:hover {
+            background: linear-gradient(to bottom, #417a9b 5%, #67c1f5 95%);
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Hola, soy Israbsuwu (Malaki) 👋</h1>
-        <p>Desarrollador Backend | Java | Python | C</p>
-        <br>
-        <p>🚧 Mi sitio web completo está en construcción 🚧</p>
-        <br>
-        <a href="https://github.com/Israbsuwu" class="btn">Ver mis Proyectos en GitHub</a>
+
+    <div class="steam-container">
+        
+        <div class="left-col">
+            <div class="avatar-box">
+                <div class="avatar-frame">
+                    <img src="https://i.pinimg.com/736x/21/53/78/21537825556209559814467554522869.jpg" class="avatar-img" alt="Avatar">
+                </div>
+                <div class="level-badge">21</div>
+            </div>
+
+            <div class="artwork-showcase">
+                <div class="artwork-title">Featured Artwork</div>
+                <img src="https://i.pinimg.com/originals/3f/9c/6c/3f9c6c1e363666666666666666666666.gif" class="main-art" alt="Arte Principal">
+            </div>
+        </div>
+
+        <div class="right-col">
+            <h1>Israbsuwu (Malaki)</h1>
+            <p class="bio-text">
+                "No hay lugar para el miedo en el código." <br>
+                Backend Developer | Java | Python | C
+            </p>
+
+            <div class="custom-box">
+                <span class="status-online">Currently Online</span>
+                <p style="color: #c7d5e0; margin: 5px 0;">Coding in Visual Studio Code</p>
+                <div style="margin-top: 15px;">
+                    <a href="https://github.com/Israbsuwu" class="btn-action">Ver Perfil de GitHub</a>
+                </div>
+            </div>
+
+            <h3 style="color: #58a6ff; border-bottom: 1px solid #3c4556; padding-bottom: 5px;">Badges Collector</h3>
+            <div class="badges-row">
+                <img src="https://img.shields.io/badge/Java-ED8B00?style=pixel&logo=openjdk&logoColor=white" height="25">
+                <img src="https://img.shields.io/badge/Python-3776AB?style=pixel&logo=python&logoColor=white" height="25">
+                <img src="https://img.shields.io/badge/C-00599C?style=pixel&logo=c&logoColor=white" height="25">
+                <img src="https://img.shields.io/badge/PostgreSQL-316192?style=pixel&logo=postgresql&logoColor=white" height="25">
+            </div>
+
+            <h3 style="color: #58a6ff; border-bottom: 1px solid #3c4556; padding-bottom: 5px; margin-top: 20px;">Top Achievements</h3>
+            <div style="background-color: #000; padding: 10px; display: flex; gap: 10px;">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Israbsuwu&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" style="width: 100%;">
+            </div>
+        </div>
+
     </div>
+
 </body>
 </html>
