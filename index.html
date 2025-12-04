@@ -7,8 +7,8 @@
     <style>
         /* --- ESTILOS GENERALES (Tema Steam) --- */
         body {
-            background-color: #1b2838; /* Fondo Steam clásico */
-            background-image: url('https://community.akamai.steamstatic.com/public/images/profile/2020/bg_dots.png'); /* Textura de puntos */
+            background-color: #1b2838;
+            background-image: url('https://community.akamai.steamstatic.com/public/images/profile/2020/bg_dots.png');
             color: #c7d5e0;
             font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
             margin: 0;
@@ -18,9 +18,8 @@
             min-height: 100vh;
         }
 
-        /* Contenedor Principal */
         .steam-container {
-            background-color: #0f1219; /* Fondo oscuro del perfil */
+            background-color: #0f1219;
             background: radial-gradient(circle at top left, #2a475e, #171a21); 
             width: 90%;
             max-width: 940px;
@@ -30,33 +29,23 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            animation: fadeIn 1.5s ease-in-out; /* Animación de entrada */
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* --- COLUMNA IZQUIERDA (Avatar y Arte) --- */
-        .left-col {
-            flex: 1;
-            min-width: 300px;
-        }
+        /* --- COLUMNA IZQUIERDA --- */
+        .left-col { flex: 1; min-width: 300px; }
 
-        .avatar-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+        .avatar-box { display: flex; gap: 15px; margin-bottom: 20px; }
         
         .avatar-frame {
-            border: 2px solid #57cbde; /* Marco azul nivel alto */
+            border: 2px solid #57cbde;
             padding: 2px;
             width: 164px;
             height: 164px;
             background-color: rgba(0,0,0,0.3);
         }
         
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-        }
+        .avatar-img { width: 100%; height: 100%; object-fit: cover; }
 
         .level-badge {
             border: 2px solid #57cbde;
@@ -82,38 +71,21 @@
             border-radius: 3px;
         }
 
-        .artwork-title {
-            color: #58a6ff;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
+        .artwork-title { color: #58a6ff; margin-bottom: 5px; font-size: 14px; }
 
         .main-art {
             width: 100%;
             border-radius: 2px;
-            /* Efecto sutil de brillo al pasar el mouse */
             transition: opacity 0.3s;
         }
         .main-art:hover { opacity: 0.9; }
 
-        /* --- COLUMNA DERECHA (Info) --- */
-        .right-col {
-            flex: 1.5;
-            min-width: 300px;
-        }
+        /* --- COLUMNA DERECHA --- */
+        .right-col { flex: 1.5; min-width: 300px; }
 
-        h1 {
-            color: #ffffff;
-            font-size: 26px;
-            margin-top: 0;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-        }
+        h1 { color: #ffffff; font-size: 26px; margin-top: 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
 
-        .bio-text {
-            color: #8f98a0;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
+        .bio-text { color: #8f98a0; font-size: 14px; margin-bottom: 20px; }
 
         .custom-box {
             background-color: rgba(0, 0, 0, 0.2);
@@ -122,20 +94,9 @@
             border-radius: 3px;
         }
 
-        .status-online {
-            color: #57cbde;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 10px;
-            display: block;
-        }
+        .status-online { color: #57cbde; font-weight: bold; font-size: 18px; margin-bottom: 10px; display: block; }
 
-        .badges-row img {
-            margin-right: 5px;
-            margin-bottom: 5px;
-            /* Animación suave en los badges */
-            transition: transform 0.2s;
-        }
+        .badges-row img { margin-right: 5px; margin-bottom: 5px; transition: transform 0.2s; }
         .badges-row img:hover { transform: scale(1.1); }
 
         .btn-action {
@@ -149,11 +110,8 @@
             margin-top: 10px;
             font-size: 14px;
         }
-        .btn-action:hover {
-            background: linear-gradient(to bottom, #417a9b 5%, #67c1f5 95%);
-        }
+        .btn-action:hover { background: linear-gradient(to bottom, #417a9b 5%, #67c1f5 95%); }
 
-        /* --- ANIMACIONES --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -167,14 +125,18 @@
         <div class="left-col">
             <div class="avatar-box">
                 <div class="avatar-frame">
-                    <img src="https://i.pinimg.com/736x/21/53/78/21537825556209559814467554522869.jpg" class="avatar-img" alt="Avatar">
+                    
+                    <img src="PEGAR_AQUI_LINK_DE_TU_FOTO_PEQUEÑA" class="avatar-img" alt="Avatar">
+                    
                 </div>
                 <div class="level-badge">21</div>
             </div>
 
             <div class="artwork-showcase">
                 <div class="artwork-title">Featured Artwork</div>
-                <img src="https://i.pinimg.com/originals/3f/9c/6c/3f9c6c1e363666666666666666666666.gif" class="main-art" alt="Arte Principal">
+                
+                <img src="PEGAR_AQUI_LINK_DE_TU_IMAGEN_GRANDE" class="main-art" alt="Arte Principal">
+                
             </div>
         </div>
 
